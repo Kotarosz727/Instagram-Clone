@@ -1,4 +1,17 @@
 <!DOCTYPE html>
   <% provide(:title, "Top") %>
-  <h1>Top</h1>
-  <p>This page would be TOP page later</p>
+ <div class="center jumbotron">
+  <h1>Welcome to Instagram Clone</h1>
+
+  <h2>
+    Please login
+  </h2>
+  
+  <p>
+  
+  <%= link_to "If you are new , please sign up here" , signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+ <%= link_to image_tag("rails.png", alt: "Rails logo"),
+            'https://pixabay.com/ja/photos/png/' %>
+
