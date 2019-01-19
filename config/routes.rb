@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   root 'sessions#new'
-  #get 'sessions/new'
+  get 'auth/:provider/callback', to: 'sessions#create'
   
  
   get '/upload', to:"home#upload"

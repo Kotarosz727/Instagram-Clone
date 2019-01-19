@@ -19,6 +19,12 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
   
+  #facebook認証
+  validates :username, presence: true, unless: :uid? 
+  validates :email, presence: true, unless: :uid?
+  has_secure_password validations: false
+  validates :password, presence: true, unless: :uid?
+  
   def feed
    following_ids = "SELECT followed_id FROM relationships
                      WHERE follower_id = :user_id"
