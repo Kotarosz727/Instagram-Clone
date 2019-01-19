@@ -1,21 +1,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* 画像を非表示にするCSS */
 
-img {
-  display: none;
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
 }
 
 /* universal */
 
 body {
-  padding-top: 80px;
+  padding-top: 60px;
 }
 
 section {
   overflow: auto;
-} 
+}
 
 textarea {
   resize: vertical;
@@ -26,7 +27,7 @@ textarea {
 }
 
 .center h1 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 /* typography */
@@ -43,18 +44,20 @@ h1 {
 }
 
 h2 {
-  font-size: 1.8em;
+  font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: red;
+  color: #777;
 }
 
 p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+
+/* header */
 
 #logo {
   float: left;
@@ -71,6 +74,7 @@ p {
   color: #fff;
   text-decoration: none;
 }
+
 
 /* footer */
 
@@ -102,6 +106,17 @@ footer ul li {
   float: left;
   margin-left: 15px;
 }
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
 
 /* sidebar */
 
@@ -140,12 +155,51 @@ aside {
   margin-top: 15px;
 }
 
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
+  @include box_sizing;
 }
 
 input {
@@ -166,6 +220,22 @@ input {
     color: $state-danger-text;
   }
 }
+
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
 
 /* Users index */
 
@@ -201,7 +271,7 @@ input {
     }
   }
   .timestamp {
-    color: red;
+    color: $gray-light;
     display: block;
     margin-left: 60px;
   }
@@ -225,3 +295,4 @@ span.picture {
     border: 0;
   }
 }
+

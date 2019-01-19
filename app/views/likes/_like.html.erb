@@ -1,0 +1,15 @@
+<% if micropost.like_user(current_user.id) %>
+  <%= button_to micropost_likes_path(likes, micropost_id: micropost.id), method: :delete, id: "like-button", remote: true do %> 
+    <%= image_tag("icon_black_heart.png") %>
+    <span>
+      <%= micropost.likes_count %>
+    </span>
+  <% end %>
+<% else %>
+  <%= button_to micropost_likes_path(micropost),id: "like-button", remote: true do %>  
+    <%= image_tag("icon_red_heart.png") %>
+    <span>
+      <%= micropost.likes_count %>
+    </span>
+  <% end %>
+<% end %>

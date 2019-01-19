@@ -1,11 +1,6 @@
 class HomeController < ApplicationController
-  def top
-  end
-  
-  def help
-  end
-  
-  def about 
-  end
-  
+
+  def upload
+    @micropost  = current_user.microposts.build
+  end  
 end
