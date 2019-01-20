@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.1'
 
 gem 'rails',                   '5.1.6'
+gem 'font-awesome-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'bootstrap-social-rails'
