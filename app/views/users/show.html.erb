@@ -14,7 +14,7 @@
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
-      <h2>Microposts (<%= @user.microposts.count %>)</h2>
+      <h2>投稿 (<%= @user.microposts.count %>)</h2>
       
       <p>content serch</p>
       <%= form_tag user_path, :method => 'get' do %>
