@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   root 'sessions#new'
   get 'auth/:provider/callback', to: 'sessions#create'
   
- 
   get '/upload', to:"home#upload"
-  #get '/help', to:"home#help"
   get  '/signup',  to: 'users#new'
   
   get    '/login',   to: 'sessions#new'
@@ -20,7 +18,7 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :relationships, only: [:create, :destroy]
   resources :microposts do
-   resources :likes, only: [:create, :destory]
+  resources :likes, only: [:create, :destory]
   end 
   
 end

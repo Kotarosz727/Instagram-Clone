@@ -14,6 +14,7 @@
 
 body {
   padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 section {
@@ -65,7 +66,7 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: black;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -81,8 +82,8 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
+  margin-top: 15px;
+  padding-top: 2px;
   border-top: 1px solid #eaeaea;
   color: #777;
 }
@@ -296,5 +297,19 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+
+/**.jumbotron {
+	padding-top: 0px;
+	background: url(top.jpg);
+	background-size: cover;
+	background-position: center center;
+	height: 600px;
+} **/
+
+.navbar-default {
+background-color: #E6E6FA;
+border-color: #3e6962;
 }
 

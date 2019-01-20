@@ -1,9 +1,9 @@
-<footer>
-<nav>
- <% if logged_in? %>
-   
-<%= link_to "アップロード", "/upload" %>
-<% end %>  
-  
- </nav>
- </footer>
+<footer class="navbar navbar-fixed-bottom navbar-default"">
+ <div class="container">
+  <nav>
+  <% if logged_in? %>
+  <%= link_to "Upload", "/upload", id: "logo" %>
+  <% end %>  
+  </nav>
+ </div>
+</footer>

@@ -1,37 +1,43 @@
 <% provide(:title, "TOP") %>
  <% if logged_in? %>
- <div class="col-md-8">
-  <h1>投稿一覧</h1>
-  <p>検索</p>
+ <div class="col-md-12">
+  <h2>投稿一覧</h2>
+  <small>検索</small>
     <%= form_tag root_path, :method => 'get' do %>
       <p>
         <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", :name => nil %>
+        <%= submit_tag "検索", :name => nil %>
       </p>
     <% end %> 
   <%= render 'shared/feed' %>
   </div>
   
-  <% else %>
-    
+<% else %>
+  
+  <div class="container">
+  <div class="row">
+  <div class="col-md-4 col-md-offset-8">
     <%= form_for(:session, url: login_path) do |f| %>
-
+    <div class="form-group has-success">
     <%= f.label :email %>
     <%= f.email_field :email, class: 'form-control' %>
-
+    </div> 
+    <div class="form-group has-warning"> 
     <%= f.label :password, "パスワード"%>
     <%= f.password_field :password, class: 'form-control' %>
-
+    </div>
     <%= f.submit "ログイン", class: "btn btn-info btn-block my-4" %>
     <% end %> 
-    
-    <p>
-  <%= link_to '/auth/facebook', class: "btn btn-social btn-facebook" do %>
+    <%= link_to '/auth/facebook', class: "btn btn-social btn-facebook" do %>
     <span class="fa fa-facebook"></span> Facebookアカウントでログイン
   <% end %>
-    </p>
+   
     
    </div>
+   
+  </div> 
+  </div>
+
   <% end %>
    
   
