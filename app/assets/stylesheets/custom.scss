@@ -14,7 +14,6 @@
 
 body {
   padding-top: 60px;
-  padding-bottom: 60px;
 }
 
 section {
@@ -82,8 +81,8 @@ p {
 /* footer */
 
 footer {
-  margin-top: 15px;
-  padding-top: 2px;
+  margin-top: 45px;
+  padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
 }
@@ -297,19 +296,5 @@ span.picture {
   input {
     border: 0;
   }
-}
-
-
-/**.jumbotron {
-	padding-top: 0px;
-	background: url(top.jpg);
-	background-size: cover;
-	background-position: center center;
-	height: 600px;
-} **/
-
-.navbar-default {
-background-color: #E6E6FA;
-border-color: #3e6962;
 }
 

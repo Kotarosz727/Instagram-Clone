@@ -1,18 +1,18 @@
 <% provide(:title, "TOP") %>
  <% if logged_in? %>
  <div class="col-md-8">
-  <h1>投稿一覧</h1>
-  <p>検索</p>
+  <P>投稿一覧</P>
     <%= form_tag root_path, :method => 'get' do %>
-      <p>
+      <small>
         <%= text_field_tag :search, params[:search] %>
         <%= submit_tag "検索", :name => nil %>
-      </p>
+      </small>
     <% end %> 
   <%= render 'shared/feed' %>
   </div>
   
   <% else %>
+  
     <%= form_for(:session, url: login_path) do |f| %>
 
     <%= f.label :email %>
@@ -24,12 +24,13 @@
     <%= f.submit "ログイン", class: "btn btn-info btn-block my-4" %>
     <% end %> 
     
+    
     <p>
   <%= link_to '/auth/facebook', class: "btn btn-social btn-facebook" do %>
     <span class="fa fa-facebook"></span> Facebookアカウントでログイン
   <% end %>
     </p>
-    
+   </div>
    </div>
   <% end %>
    

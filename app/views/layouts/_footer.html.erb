@@ -1,9 +1,9 @@
 <footer class="navbar navbar-fixed-bottom navbar-default"">
- <div class="container">
-  <nav>
+ 
   <% if logged_in? %>
+  <div class="container">
   <%= link_to "投稿", "/upload", id: "logo" ,class: "btn btn-primary"%>
+  </div>
   <% end %>  
-  </nav>
- </div>
+ 
 </footer>
