@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails',                   '5.1.6'
+gem 'rmagick'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'bootstrap-social-rails'
