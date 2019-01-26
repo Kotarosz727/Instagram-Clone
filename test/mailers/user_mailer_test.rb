@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 おrequire 'test_helper'
+=======
+require 'test_helper'
+>>>>>>> insta_development
 
 class UserMailerTest < ActionMailer::TestCase
   test "password_reset" do

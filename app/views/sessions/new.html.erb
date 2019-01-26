@@ -2,6 +2,7 @@
  <% if logged_in? %>
  <div class="col-md-8">
   <P>投稿一覧</P>
+  <p>検索</p>
     <%= form_tag root_path, :method => 'get' do %>
       <small>
         <%= text_field_tag :search, params[:search] %>
@@ -12,22 +13,19 @@
   </div>
   
   <% else %>
-  
+  <div class="row">
+   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |f| %>
-
     <%= f.label :email %>
     <%= f.email_field :email, class: 'form-control' %>
-
     <%= f.label :password, "パスワード"%>
     <%= f.password_field :password, class: 'form-control' %>
-
+    <%= link_to "(パスワードを忘れた)", "password_resets/new" %>
     <%= f.submit "ログイン", class: "btn btn-info btn-block my-4" %>
     <% end %> 
-    
-    
     <p>
-  <%= link_to '/auth/facebook', class: "btn btn-social btn-facebook" do %>
-    <span class="fa fa-facebook"></span> Facebookアカウントでログイン
+     <%= link_to '/auth/facebook', class: "btn btn-social btn-facebook" do %>
+     <span class="fa fa-facebook"></span> Facebookアカウントでログイン
   <% end %>
     </p>
    </div>

@@ -1,7 +1,8 @@
 class User < ApplicationRecord
+
   attr_accessor :reset_token
-   
   has_many :microposts, dependent: :destroy
+  has_many :comments
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -56,6 +57,26 @@ class User < ApplicationRecord
   end
   
   
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+  
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute(:reset_digest,  User.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+  
   def feed
    following_ids = "SELECT followed_id FROM relationships
                      WHERE follower_id = :user_id"
@@ -83,12 +104,12 @@ class User < ApplicationRecord
     end
   end
   
+
   def self.find_or_create_from_auth(auth)
     provider = auth[:provider]
     uid = auth[:uid]
     name = auth[:info][:name]
     image = auth[:info][:image]
- 
     self.find_or_create_by(provider: provider, uid: uid) do |user|
     user.username = name
     user.image_path = image
@@ -96,7 +117,14 @@ class User < ApplicationRecord
   end
   
   private
-   def downcase_email
+
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+  
+  private
+
+    def downcase_email
       self.email = email.downcase
     end
 end

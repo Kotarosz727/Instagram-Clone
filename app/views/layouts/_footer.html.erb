@@ -1,9 +1,7 @@
-<footer class="navbar navbar-fixed-bottom navbar-default"">
- 
-  <% if logged_in? %>
+<footer>
+ <% if logged_in? %>
   <div class="container">
-  <%= link_to "投稿", "/upload", id: "logo" ,class: "btn btn-primary"%>
+  <%= link_to "投稿", "micropost/new", id: "logo" ,class: "btn btn-primary"%>
   </div>
   <% end %>  
- 
 </footer>
