@@ -1,5 +1,7 @@
 class User < ApplicationRecord
+  attr_accessor :remember_token, :activation_token, :reset_token
   has_many :microposts, dependent: :destroy
+  has_many :comments
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -24,6 +26,26 @@ class User < ApplicationRecord
   validates :email, presence: true, unless: :uid?
   has_secure_password validations: false
   validates :password, presence: true, unless: :uid?
+  
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+  
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute(:reset_digest,  User.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
   
   def feed
    following_ids = "SELECT followed_id FROM relationships
@@ -51,4 +73,14 @@ class User < ApplicationRecord
       all 
     end
   end
+  
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+  
+  private
+
+    def downcase_email
+      self.email = email.downcase
+    end
 end

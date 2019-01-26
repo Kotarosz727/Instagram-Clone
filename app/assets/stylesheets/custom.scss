@@ -298,3 +298,12 @@ span.picture {
   }
 }
 
+.delete-comment {
+  background-image: image-url("parts8");
+  background-repeat: no-repeat;
+  width: 11px;
+  height: 11px;
+  float: right;
+  margin: 5px 0 0 10px;
+  background-size: 11px !important;
+}
