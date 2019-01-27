@@ -1,57 +1,16 @@
-# README
+自分が苦労した点
+・一からコードがかけず、ほとんどrails tutorialを参考にしてのアプリ作成となってしまった。
+・エラーの解決に時間を取られ、未実装の機能が多いままの作品となってしまった。
+・また、テストもかけなかった。
+・CSSやbootstrapに関し浅学のためデザインまで手が回らなかった。
+・Facebookログイン機能のエラー解決に注力したが、最後まで解決できなかった。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+学んだ点
+・実際に手を動かしてアプリケーションを作ることで、rails tutorialの総復習になった。
+MVC,Association,Form_for等漠然とした理解となってしまっていた部分への理解度が少し深まったと思う。
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-<% provide(:title, "投稿") %>
-
-<div class="d-flex flex-column align-items-center mt-3">
-  <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
-    <div class="card">
-      <div class="card-header">
-        投稿画面
-      </div>
-      
-  <div class="card-body">
-   <%= form_for(@micropost) do |f| %>
-   <%= render 'shared/error_messages', object: f.object %>
-    <div class="form-group row mt-2">
-    <%= f.text_field :content,class: "form-control border-0", placeholder: "キャプションを書く" %>
-     </div>
-    <div class="col pl-0">
-     <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-    </div> 
-    </div>
-  <%= f.submit "投稿する", class: "btn btn-primary" %>
-  <span class="picture">
-   
-  </span>
-<% end %>
-
-<script type="text/javascript">
-  $('#micropost_picture').bind('change', function() {
-    var size_in_megabytes = this.files[0].size/1024/1024;
-    if (size_in_megabytes > 5) {
-      alert('Maximum file size is 5MB. Please choose a smaller file.');
-    }
-  });
-</script> 
+自慢したい・相談したい点
+・エラーが出ても、丹念にエラーコードを読み、まず原因を特定・仮定する癖がついた。
+・エラーをstack overflowなど、海外ソースでも調べる癖がついた。
