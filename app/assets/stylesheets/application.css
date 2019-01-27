@@ -12,11 +12,6 @@
  *
  *= require_tree .
  *= require_self
- *= require font-awesome
  */
- /*.top-main {
-  background-image: url("/images/top.png");
-  height: 800px;
-  background-size: cover;
-}*/
+ 
 
