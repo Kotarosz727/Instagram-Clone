@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       @micropost = @comment.micropost
       respond_to :js
     else
-      flash[:alert] = "コメントに失敗しました"
+      flash[:alert] = "コメントを作成しました"
     end
   end
 
