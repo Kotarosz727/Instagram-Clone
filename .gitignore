@@ -20,4 +20,9 @@
 /node_modules
 /yarn-error.log
 
+uploder/
+
+*.jpg
+*.png
+
 .byebug_history
